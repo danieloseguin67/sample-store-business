@@ -1,0 +1,6 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#764ba2"/>
+  <text x="150" y="130" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">⌚</text>
+  <text x="150" y="170" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle">Smart</text>
+  <text x="150" y="195" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle">Watch</text>
+</svg>

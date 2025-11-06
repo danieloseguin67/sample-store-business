@@ -12,7 +12,7 @@ export class ProductService {
       name: 'Premium Headphones',
       description: 'High-quality wireless headphones with noise cancellation',
       price: 299.99,
-      imageUrl: 'https://via.placeholder.com/300x300/667eea/ffffff?text=Headphones',
+      imageUrl: 'assets/images/headphones.svg',
       category: 'Electronics',
       stock: 50,
       rating: 4.5
@@ -22,7 +22,7 @@ export class ProductService {
       name: 'Smart Watch',
       description: 'Fitness tracking smartwatch with heart rate monitor',
       price: 199.99,
-      imageUrl: 'https://via.placeholder.com/300x300/764ba2/ffffff?text=Smart+Watch',
+      imageUrl: 'assets/images/smartwatch.svg',
       category: 'Electronics',
       stock: 30,
       rating: 4.3
@@ -32,7 +32,7 @@ export class ProductService {
       name: 'Laptop Bag',
       description: 'Durable laptop bag with multiple compartments',
       price: 49.99,
-      imageUrl: 'https://via.placeholder.com/300x300/f093fb/ffffff?text=Laptop+Bag',
+      imageUrl: 'assets/images/bag.svg',
       category: 'Accessories',
       stock: 100,
       rating: 4.7
@@ -42,7 +42,7 @@ export class ProductService {
       name: 'Wireless Mouse',
       description: 'Ergonomic wireless mouse with precision tracking',
       price: 29.99,
-      imageUrl: 'https://via.placeholder.com/300x300/4facfe/ffffff?text=Wireless+Mouse',
+      imageUrl: 'assets/images/mouse.svg',
       category: 'Accessories',
       stock: 75,
       rating: 4.4

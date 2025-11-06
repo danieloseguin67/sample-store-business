@@ -17,7 +17,7 @@
   <div class="products-grid">
     <div class="product-card" *ngFor="let product of filteredProducts">
       <div class="product-image">
-        <img [src]="product.imageUrl" [alt]="product.name" />
+        <img [src]="product.imageUrl" [alt]="product.name" (error)="$any($event.target).src='assets/images/placeholder.svg'" />
       </div>
       <div class="product-info">
         <h3>{{ product.name }}</h3>
