@@ -1,0 +1,75 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+.contact-info {
+  h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+  
+  address {
+    font-style: normal;
+    line-height: 1.8;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-details {
+    p {
+      color: #7f8c8d;
+      margin: 0.5rem 0;
+      
+      strong {
+        color: #2c3e50;
+      }
+    }
+  }
+}
+
+.map-container {
+  h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+}
+
+.map-placeholder {
+  background: #f8f9fa;
+  border: 2px dashed #bdc3c7;
+  border-radius: 8px;
+  padding: 3rem;
+  text-align: center;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  p {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+  
+  .map-note {
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 1rem;
+  }
+}

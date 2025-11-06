@@ -1,0 +1,94 @@
+<div class="checkout-container">
+  <h1>Checkout</h1>
+
+  <div class="checkout-content">
+    <div class="checkout-forms">
+      <div class="shipping-form">
+        <h2>Shipping Information</h2>
+        <form>
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" [(ngModel)]="shippingInfo.fullName" name="fullName" required />
+          </div>
+          <div class="form-group">
+            <label>Address *</label>
+            <input type="text" [(ngModel)]="shippingInfo.address" name="address" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>City *</label>
+              <input type="text" [(ngModel)]="shippingInfo.city" name="city" required />
+            </div>
+            <div class="form-group">
+              <label>State/Province *</label>
+              <input type="text" [(ngModel)]="shippingInfo.state" name="state" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Zip Code *</label>
+              <input type="text" [(ngModel)]="shippingInfo.zipCode" name="zipCode" required />
+            </div>
+            <div class="form-group">
+              <label>Country *</label>
+              <input type="text" [(ngModel)]="shippingInfo.country" name="country" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Phone *</label>
+            <input type="tel" [(ngModel)]="shippingInfo.phone" name="phone" required />
+          </div>
+        </form>
+      </div>
+
+      <div class="payment-form">
+        <h2>Payment Information</h2>
+        <form>
+          <div class="form-group">
+            <label>Cardholder Name *</label>
+            <input type="text" [(ngModel)]="paymentInfo.cardName" name="cardName" required />
+          </div>
+          <div class="form-group">
+            <label>Card Number *</label>
+            <input type="text" [(ngModel)]="paymentInfo.cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Expiry Date *</label>
+              <input type="text" [(ngModel)]="paymentInfo.expiryDate" name="expiryDate" placeholder="MM/YY" required />
+            </div>
+            <div class="form-group">
+              <label>CVV *</label>
+              <input type="text" [(ngModel)]="paymentInfo.cvv" name="cvv" placeholder="123" required />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <div class="order-items">
+        <div class="order-item" *ngFor="let item of cartItems">
+          <span>{{ item.product.name }} x {{ item.quantity }}</span>
+          <span>\${{ (item.product.price * item.quantity) | number:'1.2-2' }}</span>
+        </div>
+      </div>
+      <div class="summary-totals">
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span>\${{ total | number:'1.2-2' }}</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping:</span>
+          <span>Free</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span>\${{ total | number:'1.2-2' }}</span>
+        </div>
+      </div>
+      <button class="btn-place-order" (click)="submitOrder()">Place Order</button>
+    </div>
+  </div>
+</div>

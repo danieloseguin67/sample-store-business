@@ -1,0 +1,56 @@
+<header>
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/">
+        <h1>{{ 'HEADER.TITLE' | translate }}</h1>
+      </a>
+    </div>
+    
+    <!-- Mobile menu toggle -->
+    <button class="mobile-menu-toggle d-md-none" 
+            (click)="toggleMobileMenu()" 
+            [attr.aria-expanded]="isMobileMenuOpen"
+            aria-label="Toggle navigation menu">
+      <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+      <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+      <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+    </button>
+    
+    <!-- Navigation -->
+    <nav class="nav-menu" [class.mobile-open]="isMobileMenuOpen">
+      <div class="nav-links">
+        <a routerLink="/" 
+           routerLinkActive="active" 
+           [routerLinkActiveOptions]="{exact: true}"
+           (click)="closeMobileMenu()">{{ 'HEADER.HOME' | translate }}</a>
+        <a routerLink="/shop" 
+           routerLinkActive="active"
+           (click)="closeMobileMenu()">{{ 'HEADER.SHOP' | translate }}</a>
+        <a routerLink="/cart" 
+           routerLinkActive="active" 
+           class="cart-link"
+           (click)="closeMobileMenu()">
+          {{ 'HEADER.CART' | translate }}
+          <span class="cart-badge" *ngIf="cartItemCount > 0">{{ cartItemCount }}</span>
+        </a>
+        <a *ngIf="isLoggedIn" 
+           routerLink="/profile" 
+           routerLinkActive="active"
+           (click)="closeMobileMenu()">{{ userName }}</a>
+        <a *ngIf="!isLoggedIn" 
+           routerLink="/login" 
+           routerLinkActive="active"
+           (click)="closeMobileMenu()">{{ 'HEADER.LOGIN' | translate }}</a>
+      </div>
+      
+      <div class="nav-actions">
+        <app-language-switcher></app-language-switcher>
+      </div>
+    </nav>
+    
+    <!-- Mobile overlay -->
+    <div class="mobile-overlay" 
+         [class.active]="isMobileMenuOpen" 
+         (click)="closeMobileMenu()"></div>
+  </div>
+</header>

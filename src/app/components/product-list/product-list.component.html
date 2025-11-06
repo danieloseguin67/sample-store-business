@@ -1,0 +1,36 @@
+<div class="product-list-container">
+  <div class="filters">
+    <h2>Categories</h2>
+    <button 
+      [class.active]="selectedCategory === ''" 
+      (click)="filterByCategory('')">
+      All Products
+    </button>
+    <button 
+      *ngFor="let category of categories"
+      [class.active]="selectedCategory === category"
+      (click)="filterByCategory(category)">
+      {{ category }}
+    </button>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <div class="product-image">
+        <img [src]="product.imageUrl" [alt]="product.name" />
+      </div>
+      <div class="product-info">
+        <h3>{{ product.name }}</h3>
+        <p class="category">{{ product.category }}</p>
+        <p class="description">{{ product.description }}</p>
+        <div class="product-footer">
+          <span class="price">\${{ product.price | number:'1.2-2' }}</span>
+          <div class="actions">
+            <a [routerLink]="['/product', product.id]" class="btn-details">Details</a>
+            <button (click)="addToCart(product)" class="btn-cart">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

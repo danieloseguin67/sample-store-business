@@ -1,0 +1,245 @@
+@import '../../shared/responsive-variables.scss';
+
+.container {
+  @include container;
+}
+
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: map-get($spacing, 'xxxl') map-get($spacing, 'md');
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  @include respond-to('tablet') {
+    padding: map-get($spacing, 'xxxl') map-get($spacing, 'xl');
+    min-height: 70vh;
+  }
+  
+  @include respond-to('desktop') {
+    min-height: 80vh;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    
+    h1 {
+      @include font-size('xxl');
+      margin: 0 0 map-get($spacing, 'lg');
+      font-weight: 700;
+      line-height: 1.1;
+      
+      @include respond-to('tablet') {
+        @include font-size('xxxl');
+        margin-bottom: map-get($spacing, 'xl');
+      }
+    }
+    
+    p {
+      @include font-size('lg');
+      margin: 0 0 map-get($spacing, 'xl');
+      opacity: 0.95;
+      line-height: 1.6;
+      
+      @include respond-to('tablet') {
+        @include font-size('xl');
+        margin-bottom: map-get($spacing, 'xxl');
+      }
+    }
+
+    .btn-shop-now {
+      @include button-responsive;
+      background: white;
+      color: #667eea;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      
+      @include respond-to('tablet') {
+        padding: map-get($spacing, 'lg') map-get($spacing, 'xxl');
+        @include font-size('lg');
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        color: #5568d3;
+      }
+      
+      &:focus {
+        outline: 3px solid rgba(255,255,255,0.5);
+        outline-offset: 3px;
+      }
+    }
+  }
+}
+
+.features {
+  padding: map-get($spacing, 'xxxl') map-get($spacing, 'md');
+  background: #f8f9fa;
+  
+  @include respond-to('tablet') {
+    padding: map-get($spacing, 'xxxl') map-get($spacing, 'xl');
+  }
+  
+  h2 {
+    text-align: center;
+    @include font-size('xxl');
+    color: #2c3e50;
+    margin-bottom: map-get($spacing, 'xxl');
+    font-weight: 600;
+    
+    @include respond-to('tablet') {
+      margin-bottom: map-get($spacing, 'xxxl');
+    }
+  }
+}
+
+.features-grid {
+  @include grid-responsive(1, 2, 3);
+  max-width: 1000px;
+  margin: 0 auto;
+  
+  @include respond-to('desktop') {
+    gap: map-get($spacing, 'xl');
+  }
+}
+
+.feature-card {
+  background: white;
+  padding: map-get($spacing, 'xl');
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+  
+  @include respond-to('tablet') {
+    padding: map-get($spacing, 'xxl');
+  }
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-color: rgba(102, 126, 234, 0.2);
+  }
+
+  .icon {
+    @include font-size('xxxl');
+    margin-bottom: map-get($spacing, 'lg');
+    line-height: 1;
+    
+    @include respond-to('tablet') {
+      margin-bottom: map-get($spacing, 'xl');
+    }
+  }
+  
+  h3 {
+    color: #2c3e50;
+    margin-bottom: map-get($spacing, 'md');
+    @include font-size('lg');
+    font-weight: 600;
+    
+    @include respond-to('tablet') {
+      margin-bottom: map-get($spacing, 'lg');
+    }
+  }
+  
+  p {
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin: 0;
+    @include font-size('base');
+  }
+}
+
+.cta {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: map-get($spacing, 'xxxl') map-get($spacing, 'md');
+  text-align: center;
+  
+  @include respond-to('tablet') {
+    padding: map-get($spacing, 'xxxl') map-get($spacing, 'xl');
+  }
+
+  h2 {
+    @include font-size('xl');
+    color: #2c3e50;
+    margin: 0 0 map-get($spacing, 'lg');
+    font-weight: 600;
+    
+    @include respond-to('tablet') {
+      @include font-size('xxl');
+      margin-bottom: map-get($spacing, 'xl');
+    }
+  }
+
+  p {
+    @include font-size('lg');
+    color: #7f8c8d;
+    margin: 0 0 map-get($spacing, 'xl');
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    
+    @include respond-to('tablet') {
+      margin-bottom: map-get($spacing, 'xxl');
+    }
+  }
+
+  .btn-browse {
+    @include button-responsive;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    
+    @include respond-to('tablet') {
+      padding: map-get($spacing, 'lg') map-get($spacing, 'xxl');
+      @include font-size('lg');
+    }
+
+    &:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    
+    &:focus {
+      outline: 3px solid rgba(102, 126, 234, 0.5);
+      outline-offset: 3px;
+    }
+  }
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  .hero-content .btn-shop-now,
+  .feature-card,
+  .cta .btn-browse {
+    transition: none;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .hero {
+    background: #2c3e50;
+  }
+  
+  .feature-card {
+    border: 2px solid #2c3e50;
+  }
+}

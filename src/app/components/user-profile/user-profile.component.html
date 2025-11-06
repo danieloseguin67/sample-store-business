@@ -1,0 +1,59 @@
+<div class="profile-container" *ngIf="user">
+  <h1>My Profile</h1>
+
+  <div class="profile-content">
+    <div class="user-info">
+      <h2>Account Information</h2>
+      <div class="info-group">
+        <label>Name:</label>
+        <span>{{ user.name }}</span>
+      </div>
+      <div class="info-group">
+        <label>Email:</label>
+        <span>{{ user.email }}</span>
+      </div>
+      <div class="info-group" *ngIf="user.phone">
+        <label>Phone:</label>
+        <span>{{ user.phone }}</span>
+      </div>
+      <div class="info-group" *ngIf="user.address">
+        <label>Address:</label>
+        <div>
+          <p>{{ user.address.street }}</p>
+          <p>{{ user.address.city }}, {{ user.address.state }} {{ user.address.zipCode }}</p>
+          <p>{{ user.address.country }}</p>
+        </div>
+      </div>
+      <button class="btn-logout" (click)="logout()">Logout</button>
+    </div>
+
+    <div class="order-history">
+      <h2>Order History</h2>
+      <div *ngIf="orders.length === 0" class="no-orders">
+        <p>No orders yet</p>
+        <a routerLink="/shop" class="btn-shop">Start Shopping</a>
+      </div>
+      
+      <div class="order-list" *ngIf="orders.length > 0">
+        <div class="order-card" *ngFor="let order of orders">
+          <div class="order-header">
+            <div>
+              <span class="order-id">Order #{{ order.id }}</span>
+              <span class="order-date">{{ order.createdAt | date:'medium' }}</span>
+            </div>
+            <span class="order-status" [class]="order.status">{{ order.status }}</span>
+          </div>
+          <div class="order-items">
+            <div class="order-item" *ngFor="let item of order.items">
+              <span>{{ item.product.name }} x {{ item.quantity }}</span>
+              <span>\${{ (item.price * item.quantity) | number:'1.2-2' }}</span>
+            </div>
+          </div>
+          <div class="order-total">
+            <strong>Total: \${{ order.total | number:'1.2-2' }}</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

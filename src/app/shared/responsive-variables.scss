@@ -1,0 +1,183 @@
+// Responsive breakpoints
+$breakpoints: (
+  'mobile': 480px,
+  'tablet': 768px,
+  'desktop': 1024px,
+  'large-desktop': 1200px
+);
+
+// Mixin for responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint #{$breakpoint} not found in $breakpoints.";
+  }
+}
+
+// Mobile-first mixin
+@mixin mobile-first($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: #{map-get($breakpoints, $breakpoint) - 1px}) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint #{$breakpoint} not found in $breakpoints.";
+  }
+}
+
+// Container widths
+$container-widths: (
+  'mobile': 100%,
+  'tablet': 750px,
+  'desktop': 970px,
+  'large-desktop': 1170px
+);
+
+// Spacing scale for consistent padding/margins
+$spacing: (
+  'xs': 0.25rem,
+  'sm': 0.5rem,
+  'md': 1rem,
+  'lg': 1.5rem,
+  'xl': 2rem,
+  'xxl': 3rem,
+  'xxxl': 4rem
+);
+
+// Grid system
+$grid-columns: 12;
+$grid-gutter: 1rem;
+
+// Typography responsive scale
+$font-sizes: (
+  'xs': (
+    'mobile': 0.75rem,
+    'tablet': 0.75rem,
+    'desktop': 0.875rem
+  ),
+  'sm': (
+    'mobile': 0.875rem,
+    'tablet': 0.875rem,
+    'desktop': 1rem
+  ),
+  'base': (
+    'mobile': 1rem,
+    'tablet': 1rem,
+    'desktop': 1.125rem
+  ),
+  'lg': (
+    'mobile': 1.125rem,
+    'tablet': 1.25rem,
+    'desktop': 1.5rem
+  ),
+  'xl': (
+    'mobile': 1.25rem,
+    'tablet': 1.5rem,
+    'desktop': 1.875rem
+  ),
+  'xxl': (
+    'mobile': 1.5rem,
+    'tablet': 2rem,
+    'desktop': 2.5rem
+  ),
+  'xxxl': (
+    'mobile': 2rem,
+    'tablet': 2.5rem,
+    'desktop': 3rem
+  )
+);
+
+// Responsive font size mixin
+@mixin font-size($size-name) {
+  @if map-has-key($font-sizes, $size-name) {
+    $size-map: map-get($font-sizes, $size-name);
+    
+    // Mobile first (base size)
+    font-size: map-get($size-map, 'mobile');
+    
+    // Tablet
+    @include respond-to('tablet') {
+      font-size: map-get($size-map, 'tablet');
+    }
+    
+    // Desktop
+    @include respond-to('desktop') {
+      font-size: map-get($size-map, 'desktop');
+    }
+  } @else {
+    @warn "Font size #{$size-name} not found in $font-sizes.";
+  }
+}
+
+// Flex utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Grid utilities
+@mixin grid-responsive($columns-mobile: 1, $columns-tablet: 2, $columns-desktop: 3) {
+  display: grid;
+  gap: $grid-gutter;
+  grid-template-columns: repeat($columns-mobile, 1fr);
+  
+  @include respond-to('tablet') {
+    grid-template-columns: repeat($columns-tablet, 1fr);
+  }
+  
+  @include respond-to('desktop') {
+    grid-template-columns: repeat($columns-desktop, 1fr);
+  }
+}
+
+// Container mixin
+@mixin container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: map-get($spacing, 'md');
+  padding-right: map-get($spacing, 'md');
+  
+  @include respond-to('tablet') {
+    max-width: map-get($container-widths, 'tablet');
+    padding-left: map-get($spacing, 'lg');
+    padding-right: map-get($spacing, 'lg');
+  }
+  
+  @include respond-to('desktop') {
+    max-width: map-get($container-widths, 'desktop');
+  }
+  
+  @include respond-to('large-desktop') {
+    max-width: map-get($container-widths, 'large-desktop');
+  }
+}
+
+// Button responsive mixin
+@mixin button-responsive {
+  padding: map-get($spacing, 'sm') map-get($spacing, 'md');
+  font-size: map-get(map-get($font-sizes, 'sm'), 'mobile');
+  
+  @include respond-to('tablet') {
+    padding: map-get($spacing, 'md') map-get($spacing, 'lg');
+    font-size: map-get(map-get($font-sizes, 'base'), 'tablet');
+  }
+  
+  @include respond-to('desktop') {
+    font-size: map-get(map-get($font-sizes, 'base'), 'desktop');
+  }
+}

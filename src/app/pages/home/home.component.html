@@ -1,0 +1,26 @@
+<div class="container">
+  <section class="hero">
+    <div class="hero-content">
+      <h1>{{ 'HOME.HERO_TITLE' | translate }}</h1>
+      <p>{{ 'HOME.HERO_SUBTITLE' | translate }}</p>
+      <a routerLink="/shop" class="btn-shop-now">{{ 'HOME.SHOP_NOW' | translate }}</a>
+    </div>
+  </section>
+  
+  <section class="features">
+    <h2>{{ 'HOME.WHY_SHOP' | translate }}</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="icon">{{ feature.icon }}</div>
+        <h3>{{ feature.titleKey | translate }}</h3>
+        <p>{{ feature.descKey | translate }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>{{ 'HOME.CTA_TITLE' | translate }}</h2>
+    <p>{{ 'HOME.CTA_SUBTITLE' | translate }}</p>
+    <a routerLink="/shop" class="btn-browse">{{ 'HOME.BROWSE_PRODUCTS' | translate }}</a>
+  </section>
+</div>
