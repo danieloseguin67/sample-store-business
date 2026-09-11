@@ -95,7 +95,7 @@ The proper way to connect to SQL Server is:
 4. **Insert Sample Data**:
    ```sql
    INSERT INTO ContactInfo (AddressLine1, AddressLine2, City, Province, PostalCode, Phone, Email)
-   VALUES ('123 rue des Epinards Boulevard', 'Unit 1504', 'Montreal', 'Quebec', 'H8N 0H7', '(514) 555-0123', 'info@servicebusiness.com');
+   VALUES ('123 rue des Epinards Newman Boulevard', 'Unit 1504', 'Montreal', 'Quebec', 'H8N 0H7', '(514) 555-0123', 'info@servicebusiness.com');
 
    INSERT INTO Services (Name, Description)
    VALUES 
