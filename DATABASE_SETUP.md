@@ -72,7 +72,7 @@ The proper way to connect to SQL Server is:
        CreatedAt DATETIME DEFAULT GETDATE()
    );
 
-   CREATE TABLE ContactInfo (
+   CREATE TABLE 123 rue des EpinardsInfo (
        Id INT PRIMARY KEY IDENTITY(1,1),
        AddressLine1 NVARCHAR(200),
        AddressLine2 NVARCHAR(200),
@@ -83,7 +83,7 @@ The proper way to connect to SQL Server is:
        Email NVARCHAR(100)
    );
 
-   CREATE TABLE ContactSubmissions (
+   CREATE TABLE 123 rue des EpinardsSubmissions (
        Id INT PRIMARY KEY IDENTITY(1,1),
        Name NVARCHAR(100) NOT NULL,
        Email NVARCHAR(100) NOT NULL,
@@ -94,7 +94,7 @@ The proper way to connect to SQL Server is:
 
 4. **Insert Sample Data**:
    ```sql
-   INSERT INTO ContactInfo (AddressLine1, AddressLine2, City, Province, PostalCode, Phone, Email)
+   INSERT INTO 123 rue des EpinardsInfo (AddressLine1, AddressLine2, City, Province, PostalCode, Phone, Email)
    VALUES ('7227 Newman Boulevard', 'Unit 1504', 'Montreal', 'Quebec', 'H8N 0H7', '(514) 555-0123', 'info@servicebusiness.com');
 
    INSERT INTO Services (Name, Description)

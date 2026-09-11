@@ -69,11 +69,11 @@ app.get('/api/services', async (req, res) => {
   }
 });
 
-// Example: Get contact information
-app.get('/api/contact', async (req, res) => {
+// Example: Get 123 rue des Epinards information
+app.get('/api/123 rue des Epinards', async (req, res) => {
   try {
     const result = await pool.request()
-      .query('SELECT * FROM ContactInfo');
+      .query('SELECT * FROM 123 rue des EpinardsInfo');
     res.json(result.recordset);
   } catch (err) {
     console.error('SQL error:', err);
@@ -81,19 +81,19 @@ app.get('/api/contact', async (req, res) => {
   }
 });
 
-// Example: Add contact form submission
-app.post('/api/contact/submit', async (req, res) => {
+// Example: Add 123 rue des Epinards form submission
+app.post('/api/123 rue des Epinards/submit', async (req, res) => {
   try {
     const { name, email, message } = req.body;
     const result = await pool.request()
       .input('name', sql.VarChar, name)
       .input('email', sql.VarChar, email)
       .input('message', sql.Text, message)
-      .query('INSERT INTO ContactSubmissions (Name, Email, Message, SubmittedAt) VALUES (@name, @email, @message, GETDATE())');
-    res.json({ success: true, message: 'Contact form submitted successfully' });
+      .query('INSERT INTO 123 rue des EpinardsSubmissions (Name, Email, Message, SubmittedAt) VALUES (@name, @email, @message, GETDATE())');
+    res.json({ success: true, message: '123 rue des Epinards form submitted successfully' });
   } catch (err) {
     console.error('SQL error:', err);
-    res.status(500).json({ error: 'Failed to submit contact form' });
+    res.status(500).json({ error: 'Failed to submit 123 rue des Epinards form' });
   }
 });
 
